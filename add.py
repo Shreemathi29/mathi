@@ -5,7 +5,7 @@ print(g)
 
 print("hello")
 
-h = 6
+h = 60
 
 j =90
 
