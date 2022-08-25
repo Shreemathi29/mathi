@@ -1,6 +1,10 @@
 a = 9
 g = 6
-h = a*g
+h = a/g
 print(g)
 
 print("hello")
+
+h = 6
+
+j =90
