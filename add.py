@@ -8,3 +8,6 @@ print("hello")
 h = 6
 
 j =90
+
+l = h-j
+print(l)
