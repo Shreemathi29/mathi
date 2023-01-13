@@ -1,20 +1,18 @@
-// import express from "express"
-// import bodyParser from "body-parser";
-// import cors from "cors";
+const mongoose = require('mongoose');
+const genres = require('./routes/genres');
+const customers = require('./routes/customers');
+const movies = require('./routes/movies');
+const express = require('express');
+const app = express();
 
-// import userRoutes from "./routes/users.js";
+mongoose.connect('mongodb://localhost/vidly')
+  .then(() => console.log('Connected to MongoDB...'))
+  .catch(err => console.error('Could not connect to MongoDB...'));
 
-// const app = express();
-// const port = 5000;
+app.use(express.json());
+app.use('/api/genres', genres);
+app.use('/api/customers', customers);
+app.use('/api/movies', movies);
 
-// app.use(bodyParser.json());
-// app.use(cors());
-
-// app.use("/", userRoutes);
-
-// app.get("/", (req,res) => res.send("Working00") );
-// app.all("*", (req,res) => res.send("doesn't exist"));
-
-// app.listen(port, () => 
-//     console.log(`Server is litening port : http://localhost:${port}`)
-// );
+const port = process.env.PORT || 3000;
+app.listen(port, () => console.log(`Listening on port ${port}...`));
